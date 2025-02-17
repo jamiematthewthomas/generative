@@ -2,11 +2,11 @@ package dev.jamiethomas.generative.sketches;
 
 import org.ejml.simple.SimpleMatrix;
 
-import dev.jamiethomas.generative.Generative;
+import dev.jamiethomas.generative.GenerativeSVG;
 import dev.jamiethomas.generative.utils.MatrixUtils;
 import processing.core.PApplet;
 
-public class SketchMatrixMultiplication extends Generative {
+public class SketchMatrixMultiplication extends GenerativeSVG {
 
   private static final int PIXEL_WIDTH = 50;
 
@@ -39,7 +39,8 @@ public class SketchMatrixMultiplication extends Generative {
 	  ///////////////////////////////////////////////////////////////////////////////
 	  
 	  // scale matrix
-	  SimpleMatrix scaledRGBValues = MatrixUtils.scaleToRGB(rawRGBValues, 1);
+//	  SimpleMatrix scaledRGBValues = MatrixUtils.scaleToRGB(rawRGBValues, 1);
+	  SimpleMatrix scaledRGBValues = MatrixUtils.scaleToRGBCrude(rawRGBValues);
 	  
 	  // draw matrix
     MatrixUtils.drawMatrixOnCanvas(this, scaledRGBValues, 0, 0, PIXEL_WIDTH);
@@ -53,7 +54,8 @@ public class SketchMatrixMultiplication extends Generative {
     rawRGBValues = rawRGBValues.mult(rawRGBValues);
 	      
     // scale matrix
-    scaledRGBValues = MatrixUtils.scaleToRGB(rawRGBValues, 2);
+//    scaledRGBValues = MatrixUtils.scaleToRGB(rawRGBValues, 2);
+    scaledRGBValues = MatrixUtils.scaleToRGBCrude(rawRGBValues);
 		
     // draw matrix
     MatrixUtils.drawMatrixOnCanvas(this, scaledRGBValues, PIXEL_WIDTH * scaledRGBValues.getNumRows(), 0, PIXEL_WIDTH);
@@ -66,7 +68,8 @@ public class SketchMatrixMultiplication extends Generative {
     rawRGBValues = rawRGBValues.mult(rawRGBValues);
     
     // scale matrix
-    scaledRGBValues = MatrixUtils.scaleToRGB(rawRGBValues, 4);
+//    scaledRGBValues = MatrixUtils.scaleToRGB(rawRGBValues, 4);
+    scaledRGBValues = MatrixUtils.scaleToRGBCrude(rawRGBValues);
     
     // draw matrix
     MatrixUtils.drawMatrixOnCanvas(this, scaledRGBValues, 0, PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH);
@@ -80,7 +83,8 @@ public class SketchMatrixMultiplication extends Generative {
     rawRGBValues = rawRGBValues.mult(rawRGBValues);
     
     // scale matrix
-    scaledRGBValues = MatrixUtils.scaleToRGB(rawRGBValues, 8);
+//    scaledRGBValues = MatrixUtils.scaleToRGB(rawRGBValues, 8);
+    scaledRGBValues = MatrixUtils.scaleToRGBCrude(rawRGBValues);
     
     // draw matrix
     MatrixUtils.drawMatrixOnCanvas(this, scaledRGBValues, PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH);

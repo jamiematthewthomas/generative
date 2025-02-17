@@ -1,6 +1,5 @@
 package dev.jamiethomas.generative;
 
-import dev.jamiethomas.generative.sketches.SketchDrawImageUsingCurves;
 import processing.core.PApplet;
 
 public class GenerativeSVG extends PApplet {
@@ -11,13 +10,7 @@ public class GenerativeSVG extends PApplet {
 	
 	@Override
 	public void settings() {
-		size(CANVAS_X, CANVAS_Y, SVG, SketchDrawImageUsingCurves.class.getSimpleName() + ".svg");
-	}
-	
-	public static void main(String[] args) {
-		String[] processingArgs = { SketchDrawImageUsingCurves.class.getSimpleName() };
-		SketchDrawImageUsingCurves mySketch = new SketchDrawImageUsingCurves();
-		PApplet.runSketch(processingArgs, mySketch);
+		size(CANVAS_X, CANVAS_Y, SVG, this.getClass().getSimpleName() + ".svg");
 	}
 	
 }
