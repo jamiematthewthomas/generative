@@ -2,12 +2,12 @@ package dev.jamiethomas.generative.sketches;
 
 import java.awt.image.BufferedImage;
 
-import dev.jamiethomas.generative.Generative;
+import dev.jamiethomas.generative.GenerativeSVG;
 import dev.jamiethomas.generative.utils.CurveUtils;
 import dev.jamiethomas.generative.utils.ImageUtils;
 import processing.core.PApplet;
 
-public class SketchDrawImageUsingCurves extends Generative {
+public class SketchDrawImageUsingCurves extends GenerativeSVG {
 
 	@Override
 	public void setup() {
@@ -16,7 +16,8 @@ public class SketchDrawImageUsingCurves extends Generative {
 
 	@Override
 	public void draw() {
-		BufferedImage image = ImageUtils.loadImageFromFile("C:/Users/jamie/Desktop/cat_nerd_compressed.png");
+	  BufferedImage image = ImageUtils.loadImageFromFile("C:/Users/jamie/Desktop/lake_compressed.png");
+//		BufferedImage image = ImageUtils.loadImageFromFile("C:/Users/jamie/Desktop/cat_nerd_compressed.png");
 
 		for (int i = 0; i < 100; i++) {
 			for (int j = 0; j < 100; j++) {
