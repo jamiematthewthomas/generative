@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import dev.jamiethomas.generative.Generative;
 import dev.jamiethomas.generative.utils.CurveUtils;
 import dev.jamiethomas.generative.utils.ImageUtils;
+import processing.core.PApplet;
 
 public class SketchDrawImageUsingCurves extends Generative {
 
@@ -31,4 +32,10 @@ public class SketchDrawImageUsingCurves extends Generative {
 		stop();
 	}
 
+  public static void main(String[] args) {
+    String[] processingArgs = { SketchDrawImageUsingCurves.class.getSimpleName() };
+    SketchDrawImageUsingCurves mySketch = new SketchDrawImageUsingCurves();
+    PApplet.runSketch(processingArgs, mySketch);
+  }
+	
 }
