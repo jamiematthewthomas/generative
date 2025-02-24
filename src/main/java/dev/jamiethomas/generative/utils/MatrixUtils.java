@@ -20,9 +20,9 @@ public class MatrixUtils {
    * @param yAxisZero the y-axis coordinate of the upper-left-hand corner of the image to draw
    * @param pixelWidth the width of the pixels of the image to draw
    */
-  public static void drawMatrixOnCanvas(PApplet canvas, SimpleMatrix rgbValues, int xAxisZero, int yAxisZero, int pixelWidth) {
+  public static void drawRGBMatrixOnCanvas(PApplet canvas, SimpleMatrix rgbValues, int xAxisZero, int yAxisZero, int pixelWidth) {
     for (int i = 0; i < rgbValues.getNumCols(); i++) {
-      for (int j = 0; j < rgbValues.getNumCols(); j++) {
+      for (int j = 0; j < rgbValues.getNumRows(); j++) {
 
         int rgb = ((Double) rgbValues.get(j, i)).intValue();
 
@@ -30,13 +30,24 @@ public class MatrixUtils {
         int g = (rgb >> 8) & 0xFF;
         int b = (rgb & 0xFF);
 
-        System.err.println("Filling pixel [" + i + "," + j + "] with rgb value [" + rgb + "]");
+        System.out.println("Filling pixel [" + i + "," + j + "] with rgb value [" + rgb + "]");
         canvas.fill(r, g, b);
         canvas.rect(xAxisZero + (i * pixelWidth), yAxisZero + (j * pixelWidth), xAxisZero + ((i + 1) * pixelWidth),
             yAxisZero + ((j + 1) * pixelWidth));
       }
     }
   }
+  
+  public static void drawGreyscaleMatrixOnCanvas(PApplet canvas, SimpleMatrix greyScaleValues, int xAxisZero, int yAxisZero, int pixelWidth) {
+    for (int i = 0; i < greyScaleValues.getNumCols(); i++) {
+      for (int j = 0; j < greyScaleValues.getNumRows(); j++) {
+        canvas.fill(((Double) greyScaleValues.get(j, i)).intValue());
+        canvas.rect(xAxisZero + (i * pixelWidth), yAxisZero + (j * pixelWidth), xAxisZero + ((i + 1) * pixelWidth),
+            yAxisZero + ((j + 1) * pixelWidth));
+      }
+    }
+  }
+  
 
   /**
    * Crudely scales the elements of the given matrix such that the maximum value

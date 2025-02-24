@@ -12,6 +12,7 @@ public class SketchDrawImageUsingCurves extends GenerativeSVG {
 	@Override
 	public void setup() {
 		background(255);
+		smooth();
 	}
 
 	@Override

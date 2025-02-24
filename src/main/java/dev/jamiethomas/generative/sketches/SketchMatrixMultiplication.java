@@ -43,7 +43,7 @@ public class SketchMatrixMultiplication extends GenerativeSVG {
 	  SimpleMatrix scaledRGBValues = MatrixUtils.scaleToRGBCrude(rawRGBValues);
 	  
 	  // draw matrix
-    MatrixUtils.drawMatrixOnCanvas(this, scaledRGBValues, 0, 0, PIXEL_WIDTH);
+    MatrixUtils.drawRGBMatrixOnCanvas(this, scaledRGBValues, 0, 0, PIXEL_WIDTH);
 	  
     
     ///////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ public class SketchMatrixMultiplication extends GenerativeSVG {
     scaledRGBValues = MatrixUtils.scaleToRGBCrude(rawRGBValues);
 		
     // draw matrix
-    MatrixUtils.drawMatrixOnCanvas(this, scaledRGBValues, PIXEL_WIDTH * scaledRGBValues.getNumRows(), 0, PIXEL_WIDTH);
+    MatrixUtils.drawRGBMatrixOnCanvas(this, scaledRGBValues, PIXEL_WIDTH * scaledRGBValues.getNumRows(), 0, PIXEL_WIDTH);
 
     ///////////////////////////////////////////////////////////////////////////////
     // THIRD MATRIX
@@ -72,7 +72,7 @@ public class SketchMatrixMultiplication extends GenerativeSVG {
     scaledRGBValues = MatrixUtils.scaleToRGBCrude(rawRGBValues);
     
     // draw matrix
-    MatrixUtils.drawMatrixOnCanvas(this, scaledRGBValues, 0, PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH);
+    MatrixUtils.drawRGBMatrixOnCanvas(this, scaledRGBValues, 0, PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH);
     
     
     ///////////////////////////////////////////////////////////////////////////////
@@ -87,7 +87,7 @@ public class SketchMatrixMultiplication extends GenerativeSVG {
     scaledRGBValues = MatrixUtils.scaleToRGBCrude(rawRGBValues);
     
     // draw matrix
-    MatrixUtils.drawMatrixOnCanvas(this, scaledRGBValues, PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH);
+    MatrixUtils.drawRGBMatrixOnCanvas(this, scaledRGBValues, PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH);
     
     
     
