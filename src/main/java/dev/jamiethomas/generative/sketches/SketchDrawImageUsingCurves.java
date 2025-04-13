@@ -3,8 +3,8 @@ package dev.jamiethomas.generative.sketches;
 import java.awt.image.BufferedImage;
 
 import dev.jamiethomas.generative.GenerativeSVG;
-import dev.jamiethomas.generative.utils.CurveUtils;
 import dev.jamiethomas.generative.utils.ImageUtils;
+import dev.jamiethomas.generative.utils.StrokeUtils;
 import processing.core.PApplet;
 
 public class SketchDrawImageUsingCurves extends GenerativeSVG {
@@ -12,7 +12,7 @@ public class SketchDrawImageUsingCurves extends GenerativeSVG {
 	@Override
 	public void setup() {
 		background(255);
-		smooth();
+		noFill();
 	}
 
 	@Override
@@ -27,7 +27,8 @@ public class SketchDrawImageUsingCurves extends GenerativeSVG {
 				int g = (rgb >> 8) & 0xFF;
 				int b = (rgb & 0xFF);
 				int grey = (r + g + b) / 3;
-				CurveUtils.drawCurve(this, i*10, j*10, 10, (255 - grey) / 11);
+				StrokeUtils.upwardsBellCurve(this, i*10, j*10, 10, (255 - grey) / 11);
+//				StrokeUtils.hundredsAndThousands(this, i*10, j*10, 10, 10, (255 - grey) / 25, 10);
 			}
 		}
 		
