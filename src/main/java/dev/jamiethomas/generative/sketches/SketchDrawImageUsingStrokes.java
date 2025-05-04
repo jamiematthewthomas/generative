@@ -2,21 +2,22 @@ package dev.jamiethomas.generative.sketches;
 
 import java.awt.image.BufferedImage;
 
-import dev.jamiethomas.generative.GenerativeSVG;
+import dev.jamiethomas.generative.Generative;
 import dev.jamiethomas.generative.utils.ImageUtils;
 import dev.jamiethomas.generative.utils.StrokeUtils;
 import processing.core.PApplet;
 
-public class SketchDrawImageUsingStrokes extends GenerativeSVG {
+public class SketchDrawImageUsingStrokes extends Generative {
 
 	@Override
 	public void setup() {
 		background(255);
-		noFill();
 	}
 
 	@Override
-	public void draw() {
+	public void drawWithSVGExport() {
+	  noFill();
+	  
 //	  BufferedImage image = ImageUtils.loadImageFromFile("C:/Users/jamie/Desktop/lake_compressed.png");
 		BufferedImage image = ImageUtils.loadImageFromFile("C:/Users/jamie/Desktop/cat_nerd_compressed.png");
 
@@ -32,7 +33,6 @@ public class SketchDrawImageUsingStrokes extends GenerativeSVG {
 			}
 		}
 		
-		stop();
 	}
 
   public static void main(String[] args) {

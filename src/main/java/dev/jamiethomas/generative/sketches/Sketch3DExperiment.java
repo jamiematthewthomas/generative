@@ -11,24 +11,23 @@ public class Sketch3DExperiment extends Generative3D {
   public void setup() {
     background(255);
   }
+
   
   @Override
-  public void draw() {
-
+  public void drawWithSVGExport() {
     pushMatrix();
     translate(500, 500, z);
     rotateX(((2*PI)/1000) * -z);
     sphere(250);
     popMatrix();
     
-    
     z++;
   }
+  
   
   public static void main(String[] args) {
     String[] processingArgs = { Sketch3DExperiment.class.getSimpleName() };
     Sketch3DExperiment mySketch = new Sketch3DExperiment();
     PApplet.runSketch(processingArgs, mySketch);
   }
-  
 }

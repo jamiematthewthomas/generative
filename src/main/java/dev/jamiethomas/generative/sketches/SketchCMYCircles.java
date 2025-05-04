@@ -3,19 +3,19 @@ package dev.jamiethomas.generative.sketches;
 import java.util.ArrayList;
 import java.util.List;
 
-import dev.jamiethomas.generative.GenerativeSVG;
+import dev.jamiethomas.generative.Generative;
 import processing.core.PApplet;
 
-public class SketchCMYCircles extends GenerativeSVG {
+public class SketchCMYCircles extends Generative {
  
   @Override
   public void setup() {
     background(255);
-    noFill();
   }
 
   @Override
-  public void draw() {
+  public void drawWithSVGExport() {
+    noFill();
     
     // construct circles upfront (so we can plot them later)
     List<Circle> cCircles = new ArrayList<Circle>();
@@ -54,7 +54,6 @@ public class SketchCMYCircles extends GenerativeSVG {
       yCircles.forEach(c -> circle((float) c.getX(), (float) c.getY(), (float) c.getR()));
     }
     
-    stop();
   }
   
   
