@@ -6,7 +6,7 @@ import java.util.List;
 import dev.jamiethomas.generative.GenerativeSVG;
 import processing.core.PApplet;
 
-public class SketchCMYExperment extends GenerativeSVG {
+public class SketchCMYCircles extends GenerativeSVG {
  
   @Override
   public void setup() {
@@ -22,7 +22,7 @@ public class SketchCMYExperment extends GenerativeSVG {
     List<Circle> mCircles = new ArrayList<Circle>();
     List<Circle> yCircles = new ArrayList<Circle>();
     
-    double theta = Math.PI / 100;
+    double theta = Math.PI / 120;
     
     for (int i = 100; i < 1000; i = i + 100) {
       for (int j = 100; j < 1000; j = j + 100) {
@@ -85,8 +85,8 @@ public class SketchCMYExperment extends GenerativeSVG {
   }
 
   public static void main(String[] args) {
-    String[] processingArgs = { SketchCMYExperment.class.getSimpleName() };
-    SketchCMYExperment mySketch = new SketchCMYExperment();
+    String[] processingArgs = { SketchCMYCircles.class.getSimpleName() };
+    SketchCMYCircles mySketch = new SketchCMYCircles();
     PApplet.runSketch(processingArgs, mySketch);
   }
 }
