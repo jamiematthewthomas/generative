@@ -1,30 +1,150 @@
 package dev.jamiethomas.generative.sketches;
 
-import dev.jamiethomas.generative.Generative3D;
+import dev.jamiethomas.generative.Generative3DNoAnimation;
 import processing.core.PApplet;
 
-public class Sketch3DExperiment extends Generative3D {
+public class Sketch3DExperiment extends Generative3DNoAnimation {
 
-  float z = 0;
-  
   @Override
   public void setup() {
     background(255);
   }
 
-  
+
   @Override
   public void drawWithSVGExport() {
-    pushMatrix();
-    translate(500, 500, z);
-    rotateX(((2*PI)/1000) * -z);
-    sphere(250);
-    popMatrix();
-    
-    z++;
+    noFill();
+    rectMode(CORNERS);
+
+    stroke(0, 255, 255); // cyan
+    drawBars(100,
+        BarConstruction.FULL_BAR,
+        BarConstruction.TWENTY_FIFTY,
+        BarConstruction.FOURTY_THIRTY,
+        BarConstruction.THIRTY_FOURTY,
+        BarConstruction.TEN_SIXTY,
+        BarConstruction.FIFTY_TWENTY,
+        BarConstruction.FULL_BAR
+        );
+
+    stroke(255, 255, 0); // yellow
+    drawBars(105,
+        BarConstruction.FULL_BAR,
+        BarConstruction.TWENTY_FIFTY,
+        BarConstruction.FOURTY_THIRTY,
+        BarConstruction.FIFTY_TWENTY,
+        BarConstruction.THIRTY_FOURTY,
+        BarConstruction.TEN_SIXTY,
+        BarConstruction.FULL_BAR
+        );
+
+    stroke(255, 0, 255); // magenta
+    drawBars(110,
+        BarConstruction.FULL_BAR,
+        BarConstruction.THIRTY_FOURTY,
+        BarConstruction.TEN_SIXTY,
+        BarConstruction.TWENTY_FIFTY,
+        BarConstruction.FIFTY_TWENTY,
+        BarConstruction.FOURTY_THIRTY,
+        BarConstruction.FULL_BAR
+        );
+
+    stroke(0, 255, 255); // cyan
+    drawBars(900,
+        BarConstruction.FULL_BAR,
+        BarConstruction.TWENTY_FIFTY,
+        BarConstruction.FOURTY_THIRTY,
+        BarConstruction.THIRTY_FOURTY,
+        BarConstruction.TEN_SIXTY,
+        BarConstruction.FIFTY_TWENTY,
+        BarConstruction.FULL_BAR
+        );
+
+    stroke(255, 255, 0); // yellow
+    drawBars(905,
+        BarConstruction.FULL_BAR,
+        BarConstruction.TWENTY_FIFTY,
+        BarConstruction.FOURTY_THIRTY,
+        BarConstruction.FIFTY_TWENTY,
+        BarConstruction.THIRTY_FOURTY,
+        BarConstruction.TEN_SIXTY,
+        BarConstruction.FULL_BAR
+        );
+
+    stroke(255, 0, 255); // magenta
+    drawBars(910,
+        BarConstruction.FULL_BAR,
+        BarConstruction.THIRTY_FOURTY,
+        BarConstruction.TEN_SIXTY,
+        BarConstruction.TWENTY_FIFTY,
+        BarConstruction.FIFTY_TWENTY,
+        BarConstruction.FOURTY_THIRTY,
+        BarConstruction.FULL_BAR
+        );
+
   }
-  
-  
+
+
+  private void drawBars(float yValue, BarConstruction... barConstructions) {
+
+    float zValue = 0;
+
+    for (BarConstruction barConstruction : barConstructions) {
+      pushMatrix();
+      translate(500, yValue, zValue);
+      rotateX(PI/2);
+      drawBar(barConstruction);
+      popMatrix();
+
+      zValue = zValue - 200;
+    }
+  }
+
+
+  private void drawBar(BarConstruction barConstruction) {
+    switch (barConstruction) {
+      case FULL_BAR:
+        rect(-400, 0, 400, 100);
+        break;
+      case TEN_SIXTY:
+        rect(-400, 0, -300, 100);
+        rect(-200, 0, 400, 100);
+        break;
+      case TWENTY_FIFTY:
+        rect(-400, 0, -200, 100);
+        rect(-100, 0, 400, 100);
+        break;
+      case THIRTY_FOURTY:
+        rect(-400, 0, -100, 100);
+        rect(0, 0, 400, 100);
+        break;
+      case FOURTY_THIRTY:
+        rect(-400, 0, 0, 100);
+        rect(100, 0, 400, 100);
+        break;
+      case FIFTY_TWENTY:
+        rect(-400, 0, 100, 100);
+        rect(200, 0, 400, 100);
+        break;
+      case SIXTY_TEN:
+        rect(-400, 0, 200, 100);
+        rect(300, 0, 400, 100);
+        break;
+    }
+  }
+
+
+  private enum BarConstruction {
+    FULL_BAR,
+    TEN_SIXTY,
+    TWENTY_FIFTY,
+    THIRTY_FOURTY,
+    FOURTY_THIRTY,
+    FIFTY_TWENTY,
+    SIXTY_TEN;
+  }
+
+
   public static void main(String[] args) {
     String[] processingArgs = { Sketch3DExperiment.class.getSimpleName() };
     Sketch3DExperiment mySketch = new Sketch3DExperiment();

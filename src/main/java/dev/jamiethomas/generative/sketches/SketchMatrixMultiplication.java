@@ -2,24 +2,19 @@ package dev.jamiethomas.generative.sketches;
 
 import org.ejml.simple.SimpleMatrix;
 
-import dev.jamiethomas.generative.GenerativeSVG;
+import dev.jamiethomas.generative.Generative;
 import dev.jamiethomas.generative.utils.MatrixUtils;
 import processing.core.PApplet;
 
-public class SketchMatrixMultiplication extends GenerativeSVG {
+public class SketchMatrixMultiplication extends Generative {
 
   private static final int PIXEL_WIDTH = 50;
 
-  
 	@Override
-	public void setup() {
+	public void drawWithSVGExport() {
 	  noStroke();
-		rectMode(CORNERS);
-	}
+	  rectMode(CORNERS);
 
-	
-	@Override
-	public void draw() {
 	  SimpleMatrix rawRGBValues = new SimpleMatrix(
 	      new double[][] {
 	        new double[] {16777215d, 16777215d, 00000000d, 00000000d, 00000000d, 00000000d, 00000000d, 00000000d, 00000000d, 00000000d},
@@ -89,11 +84,6 @@ public class SketchMatrixMultiplication extends GenerativeSVG {
     // draw matrix
     MatrixUtils.drawRGBMatrixOnCanvas(this, scaledRGBValues, PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH * scaledRGBValues.getNumRows(), PIXEL_WIDTH);
     
-    
-    
-    
-    
-		stop();
 	}
 
 	
