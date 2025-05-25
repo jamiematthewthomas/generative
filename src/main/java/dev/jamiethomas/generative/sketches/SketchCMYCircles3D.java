@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.jamiethomas.generative.Generative3DNoAnimation;
+import dev.jamiethomas.generative.shapes.Circle;
 import processing.core.PApplet;
 
 public class SketchCMYCircles3D extends Generative3DNoAnimation {
@@ -58,32 +59,6 @@ public class SketchCMYCircles3D extends Generative3DNoAnimation {
     popMatrix();
   }
 
-
-  private static class Circle {
-
-    private final float x;
-    private final float y;
-    private final float r;
-
-    Circle(float x, float y, float r) {
-      this.x = x;
-      this.y = y;
-      this.r = r;
-    }
-
-    public float getX() {
-      return x;
-    }
-
-    public float  getY() {
-      return y;
-    }
-
-    public float getR() {
-      return r;
-    }
-
-  }
 
   public static void main(String[] args) {
     String[] processingArgs = { SketchCMYCircles3D.class.getSimpleName() };
