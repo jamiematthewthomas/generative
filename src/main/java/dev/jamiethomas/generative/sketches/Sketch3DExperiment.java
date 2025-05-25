@@ -16,8 +16,7 @@ public class Sketch3DExperiment extends Generative3DNoAnimation {
     noFill();
     rectMode(CORNERS);
 
-    stroke(0, 255, 255); // cyan
-    drawBars(100,
+    drawBars(100, Colour.CYAN,
         BarConstruction.FULL_BAR,
         BarConstruction.TWENTY_FIFTY,
         BarConstruction.FOURTY_THIRTY,
@@ -27,19 +26,17 @@ public class Sketch3DExperiment extends Generative3DNoAnimation {
         BarConstruction.FULL_BAR
         );
 
-    stroke(255, 255, 0); // yellow
-    drawBars(105,
+    drawBars(105, Colour.YELLOW,
         BarConstruction.FULL_BAR,
         BarConstruction.TWENTY_FIFTY,
-        BarConstruction.FOURTY_THIRTY,
+        BarConstruction.SIXTY_TEN,
         BarConstruction.FIFTY_TWENTY,
         BarConstruction.THIRTY_FOURTY,
         BarConstruction.TEN_SIXTY,
         BarConstruction.FULL_BAR
         );
 
-    stroke(255, 0, 255); // magenta
-    drawBars(110,
+    drawBars(110, Colour.MAGENTA,
         BarConstruction.FULL_BAR,
         BarConstruction.THIRTY_FOURTY,
         BarConstruction.TEN_SIXTY,
@@ -49,8 +46,7 @@ public class Sketch3DExperiment extends Generative3DNoAnimation {
         BarConstruction.FULL_BAR
         );
 
-    stroke(0, 255, 255); // cyan
-    drawBars(900,
+    drawBars(900, Colour.CYAN,
         BarConstruction.FULL_BAR,
         BarConstruction.TWENTY_FIFTY,
         BarConstruction.FOURTY_THIRTY,
@@ -60,19 +56,17 @@ public class Sketch3DExperiment extends Generative3DNoAnimation {
         BarConstruction.FULL_BAR
         );
 
-    stroke(255, 255, 0); // yellow
-    drawBars(905,
+    drawBars(905, Colour.YELLOW,
         BarConstruction.FULL_BAR,
         BarConstruction.TWENTY_FIFTY,
-        BarConstruction.FOURTY_THIRTY,
+        BarConstruction.SIXTY_TEN,
         BarConstruction.FIFTY_TWENTY,
         BarConstruction.THIRTY_FOURTY,
         BarConstruction.TEN_SIXTY,
         BarConstruction.FULL_BAR
         );
 
-    stroke(255, 0, 255); // magenta
-    drawBars(910,
+    drawBars(910, Colour.MAGENTA,
         BarConstruction.FULL_BAR,
         BarConstruction.THIRTY_FOURTY,
         BarConstruction.TEN_SIXTY,
@@ -85,7 +79,9 @@ public class Sketch3DExperiment extends Generative3DNoAnimation {
   }
 
 
-  private void drawBars(float yValue, BarConstruction... barConstructions) {
+  private void drawBars(float yValue, Colour colour, BarConstruction... barConstructions) {
+
+    stroke(colour.red, colour.green, colour.blue);
 
     float zValue = 0;
 
@@ -142,6 +138,24 @@ public class Sketch3DExperiment extends Generative3DNoAnimation {
     FOURTY_THIRTY,
     FIFTY_TWENTY,
     SIXTY_TEN;
+  }
+
+
+  private enum Colour {
+
+    CYAN(0, 255, 255),
+    MAGENTA(255, 0, 255),
+    YELLOW(255, 255, 0);
+
+    private final int red;
+    private final int green;
+    private final int blue;
+
+    Colour(int red, int green, int blue) {
+      this.red = red;
+      this.green= green;
+      this.blue = blue;
+    }
   }
 
 
