@@ -23,35 +23,39 @@ public class SketchCMYCircles3D extends Generative3DNoAnimation {
 
         // determine distance from (0, 0) and use this to determine the radius
         float d = (float) Math.sqrt(Math.pow(i, 2) + Math.pow(j, 2));
-
         circles.add(new Circle(i, j, 10 + (d/10)));
       }
     }
 
-    // translate the frame a bit for each colour
-    float theta = PI / 120;
+    // tilt the 'camera' in the X and Y plane, and re-center it
+    pushMatrix();
+    translate(35, -20);
 
     pushMatrix();
-    translate(500, 500);
+    rotateX(PI/25);
+    rotateY(PI/25);
+
+    // plot each set of circles on top of each other in the Z plane
+    pushMatrix();
+    translate(500, 500, 0);
     stroke(0, 255, 255); // cyan
     circles.forEach(c -> circle(c.getX(), c.getY(), c.getR()));
     popMatrix();
 
     pushMatrix();
-    translate(500, 500);
-    rotateZ(theta);
+    translate(500, 500, 10);
     stroke(255, 0, 255); // magenta
     circles.forEach(c -> circle(c.getX(), c.getY(), c.getR()));
     popMatrix();
 
-
     pushMatrix();
-    translate(500, 500);
-    rotateZ(2*theta);
+    translate(500, 500, 20);
     stroke(255, 255, 0); // yellow
     circles.forEach(c -> circle(c.getX(), c.getY(), c.getR()));
     popMatrix();
 
+    popMatrix();
+    popMatrix();
   }
 
 
