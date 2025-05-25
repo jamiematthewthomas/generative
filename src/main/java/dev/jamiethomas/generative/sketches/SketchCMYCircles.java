@@ -6,6 +6,11 @@ import java.util.List;
 import dev.jamiethomas.generative.Generative;
 import processing.core.PApplet;
 
+/**
+ * Deprecated - use {@link SketchCMYCircles3D} instead, which uses frame rotation & transation
+ * instead of all the manual geometry in here.
+ */
+@Deprecated
 public class SketchCMYCircles extends Generative {
 
   @Override
