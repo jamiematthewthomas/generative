@@ -80,7 +80,6 @@ public class Sketch3DExperiment extends Generative3DNoAnimation {
 
 
   private void drawBars(float yValue, Colour colour, BarConstruction... barConstructions) {
-
     stroke(colour.red, colour.green, colour.blue);
 
     float zValue = 0;
