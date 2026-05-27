@@ -12,8 +12,10 @@ public class SketchDataLines3D extends Generative3DNoAnimation {
   private static final int NUM_LINES = 4 * 12; // 4 years of 12 months (approx)
   private static final int NUM_POINTS = 7 * 4; // 4 weeks in a period
   private static final float X_SPACING = 30;
-  private static final float Z_SPACING = 40;
+  private static final float Z_SPACING = 80;
   private static final float AMPLITUDE = 50;
+  private static final float FOREGROUND_EXTENSION_Z = 1000;
+  private static final float BACKGROUND_EXTENSION_Z = 10000;
 
   @Override
   public void setup() {
@@ -52,23 +54,47 @@ public class SketchDataLines3D extends Generative3DNoAnimation {
     // Place the origin at the bottom-left foreground; rotations cause each
     // successive line to appear higher and further right, producing the
     // bottom-left foreground → upper-right background perspective.
-    translate(-250, 600);
-    rotateX(-PI / 10);
-    rotateY(-PI / 8);
+    translate(-200, 400, -800);
+    rotateX(-PI / 5);
+    rotateY(-PI * 2 / 9);
 
+    pushMatrix();
+    translate(0, 0, 0);
+    stroke(0, 255, 255); // cyan
+    drawLineGraphs(data);
+    popMatrix();
+
+    pushMatrix();
+    translate(2, 2, 2);
+    stroke(255, 0, 255); // magenta
+    drawLineGraphs(data);
+    popMatrix();
+
+    pushMatrix();
+    translate(-2, -2, -2);
+    stroke(255, 255, 0); // yellow
+    drawLineGraphs(data);
+    popMatrix();
+
+    popMatrix();
+  }
+
+  private void drawLineGraphs(List<List<Float>> data) {
     // Draw right-to-left so left lines (closer to the viewer under rotateY) render on top in the SVG.
     for (int i = data.size() - 1; i >= 0; i--) {
       List<Float> series = data.get(i);
       float x = i * X_SPACING;
 
       beginShape();
+      vertex(x, 0, FOREGROUND_EXTENSION_Z);
+      vertex(x, 0, Z_SPACING);
       for (int j = 0; j < series.size(); j++) {
         vertex(x, series.get(j), -j * Z_SPACING);
       }
+      vertex(x, 0, -series.size() * Z_SPACING);
+      vertex(x, 0, -(series.size() - 1) * Z_SPACING - BACKGROUND_EXTENSION_Z);
       endShape();
     }
-
-    popMatrix();
   }
 
   public static void main(String[] args) {
