@@ -13,7 +13,7 @@ public class SketchDataLines3D extends Generative3DNoAnimation {
   private static final int NUM_POINTS = 7 * 4; // 4 weeks in a period
   private static final float X_SPACING = 30;
   private static final float Z_SPACING = 80;
-  private static final float AMPLITUDE = 50;
+  private static final float AMPLITUDE = 100;
   private static final float FOREGROUND_EXTENSION_Z = 1000;
   private static final float BACKGROUND_EXTENSION_Z = 10000;
 
@@ -36,7 +36,7 @@ public class SketchDataLines3D extends Generative3DNoAnimation {
     for (int i = 0; i < NUM_LINES; i++) {
       List<Float> series = new ArrayList<>();
       for (int j = 0; j < NUM_POINTS; j++) {
-        series.add((random.nextFloat() - 0.5f) * 2 * AMPLITUDE);
+        series.add(random.nextFloat() * -1 * AMPLITUDE);
       }
       data.add(series);
     }
